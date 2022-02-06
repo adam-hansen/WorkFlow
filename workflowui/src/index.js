@@ -34,9 +34,9 @@ function LoadCustomer() {
   if (error) return <p>Error :(</p>;
 
   return(
-    <div>
-      {data.customer.firstName}
-      {data.customer.lastName}
+    <div className="customers">
+      <li>{data.customer.firstName}</li>
+      <li>{data.customer.lastName}</li>
     </div>
   );
   // return data.customer(({ firstName, lastName }) => (
