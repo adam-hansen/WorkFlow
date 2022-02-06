@@ -7,9 +7,22 @@
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch GraphQL IDE",
+            "url": "https://localhost:7002/graphql/"
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Workflow UI",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Web UI / GraphQL API",
+            "configurations": ["Launch GraphQL IDE", "Launch Workflow UI"],
+            "preLaunchTask": "${defaultBuildTask}"
         }
     ]
 }
