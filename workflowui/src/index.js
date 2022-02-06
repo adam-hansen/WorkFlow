@@ -4,6 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {
+    ApolloClient,
+    InMemoryCache,
+    ApolloProvider,
+    useQuery,
+    gql
+  } from "@apollo/client";
+
+  const client = new ApolloClient({
+    uri: '/graphql/',
+    cache: new InMemoryCache(),
+    fetchOptions: {
+        mode: 'no-cors',
+      },
+  });
+
 // ReactDOM.render(
 //   <React.StrictMode>
 //     <App />
@@ -17,3 +33,17 @@ ReactDOM.render(greeting, document.getElementById('root'));
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+client
+  .query({
+    query: gql`
+      query {
+        customer{
+          firstName,
+          lastName
+        }
+      }
+    `
+  })
+  .then(result => console.log(result));
