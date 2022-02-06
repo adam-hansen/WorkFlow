@@ -1,18 +1,19 @@
-# https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /source
+WORKDIR /src
 
-# copy csproj and restore as distinct layers
-COPY *.csproj .
+COPY *.csproj ./
 RUN dotnet restore
 
-# copy everything else and build app
-COPY . .
-WORKDIR /source
-RUN dotnet publish -c release -o /app --no-restore
+COPY . ./
+RUN dotnet build -c Release -o /app
+RUN dotnet publish  -c Release -o /app
 
-# final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+
+###############################################################
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS prod
+
 WORKDIR /app
-COPY --from=build /app ./
-ENTRYPOINT ["dotnet", "GraphQL.dll"]
+COPY --from=build /app .
+EXPOSE 5000
+ENTRYPOINT ["dotnet", "GraphQl.dll"]
