@@ -15,5 +15,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS prod
 
 WORKDIR /app
 COPY --from=build /app .
-EXPOSE 5000
+ENV ASPNETCORE_URLS=http://*:4040
+EXPOSE 4040
 ENTRYPOINT ["dotnet", "GraphQl.dll"]

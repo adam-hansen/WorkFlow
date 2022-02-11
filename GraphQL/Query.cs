@@ -3,7 +3,7 @@ public class Query
     public Customer Getcustomer() =>
         new Customer
         {
-            FirstName = "FirstTest",
+            FirstName = "FirstTestUpdate",
             LastName = "LastTest",
             Company = "None",
             PreferredGreeting = "Mr."
