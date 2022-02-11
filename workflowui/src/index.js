@@ -9,7 +9,7 @@ import {
 } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: '/graphql/',
+  uri: 'http://localhost:31234/graphql/',
   cache: new InMemoryCache(),
   fetchOptions: {
       mode: 'no-cors',
