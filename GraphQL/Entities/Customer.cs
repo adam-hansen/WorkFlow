@@ -6,13 +6,3 @@ public class Customer
 
     public string PreferredGreeting { get; set;}
 }
-
-public class Workflow
-{
-    public enum Actions{
-        Consumer,
-        Commericial
-    }
-
-
-}

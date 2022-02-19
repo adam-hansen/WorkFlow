@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="HotChocolate" Version="12.6.0" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="12.6.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.2" />
   </ItemGroup>
 
 </Project>
